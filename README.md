@@ -1,6 +1,5 @@
 # Discordfy
-## A fork of 
-[Discord-Spotify-RPC](https://github.com/WalshyDev/Discord-Spotify-RPC)
+A fork of [Discord-Spotify-RPC](https://github.com/WalshyDev/Discord-Spotify-RPC)
 
 Once compiled (i use pkg) it will autorun everytime the computer 
 is started.
