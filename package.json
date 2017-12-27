@@ -4,19 +4,17 @@
   "description": "Adds Spotify Rich Presence to Discord",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WalshyDev/Discord-Spotify-RPC.git"
   },
-  "scripts": {
-    "start": "node index.js"
-  },
   "dependencies": {
-    "node-spotify-webhelper": "nadavbar/node-spotify-webhelper",
-    "discord-rpc": "^3.0.0-beta.3"
+    "auto-launch": "^5.0.5",
+    "discord-rpc": "^3.0.0-beta.3",
+    "node-notifier": "^5.1.2",
+    "node-spotify-webhelper": "nadavbar/node-spotify-webhelper"
   },
   "keywords": [
     "discord",
