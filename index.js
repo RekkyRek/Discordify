@@ -2,11 +2,11 @@ const DiscordRPC = require('discord-rpc'),
 	notifier = require('node-notifier'),
 	nodeSpotifyWebhelper = require('node-spotify-webhelper'),
 	config = require('./config.json');
-	
+
 let spotify;
 
 const ClientId = config.clientId || "384286107036155904";
-const imageKey = config.largeImageKey || "spotify";
+const imageKey = config.largeImageKey || "spotify_icon_large";
 const imageText = config.largeImageText || undefined;
 
 const http = require('http');
@@ -31,6 +31,8 @@ http.get('http://127.0.0.1:21847', (resp) => {
 	server.listen(21847);
 	login();
 });
+
+DiscordRPC.register(config.clientId)
 
 const rpc = new DiscordRPC.Client({
 	transport: 'ipc'
@@ -74,6 +76,7 @@ async function updateActivity() {
 		}
 		
 		try {
+			console.log(res.track.track_resource.uri)
 			if (res.track.track_resource && res.track.track_resource.name && res.track.track_resource.name != songName) {
 				if (config.time === 'song-time') {
 					startTimestamp = new Date(new Date() - (res.playing_position * 1000));
@@ -85,7 +88,11 @@ async function updateActivity() {
 					startTimestamp,
 					largeImageKey: imageKey,
 					largeImageText: imageText,
-					instance: false,
+					instance: 1,
+					partyId: '7b68',
+					partySize: 1,
+					partyMax: 100,
+					joinSecret: res.track.track_resource.uri
 				});
 				console.log(`[${new Date().toLocaleTimeString()}] Updated Rich Presence - ${res.track.track_resource.name}`)
 			}
